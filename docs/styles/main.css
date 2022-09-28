@@ -10463,3 +10463,20 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.mb-info {
+  display: flex;
+  margin-top: 70px !important;
+}
+
+.mb-info > div {
+  width: 70%;
+}
+
+.mb-info > div > h3 {
+  margin-top: 30px;
+}
+
+.mb-info > img {
+  width: 30%;
+}
