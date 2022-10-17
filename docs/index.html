@@ -28,6 +28,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.js" type="text/javascript"></script>
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4ufq3n36dj"></script>
     <script type="text/javascript">
         function sendMail() {
 
@@ -129,7 +131,7 @@
                                         video</a></li>
                                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#member">Member</a></li>
                                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#events">Events</a></li>
-                                <li class="nav-item"><a class="nav-link smooth-scroll" href="#map">Map</a></li>
+                                <li class="nav-item"><a class="nav-link smooth-scroll" href="#space">Map</a></li>
                                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#d-day">D-Day</a></li>
                                 <!--li class="nav-item"><a class="nav-link smooth-scroll" href="#gallery">Gallery</a></!--li-->
                             </ul>
@@ -141,9 +143,10 @@
                 <div class="container">
                     <h2 class="h1 text-center pb-3 ww-title">초대 영상</h2>
                     <div class="video-wrap">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/RR9acPSJGxs?version=3&vq=hd1080" 
-                            title="YouTube video player" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        <iframe width="100%" height="315"
+                            src="https://www.youtube.com/embed/RR9acPSJGxs?version=3&vq=hd1080"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
                     <div class="my-3 text-center">
@@ -189,7 +192,7 @@
                                         style="font-family: 'Sunflower', sans-serif; font-size:1.5em">
                                         이민수</h3>
                                     <p>#공진남 #팀원구함</p>
-                                    <p>이거 하려고 퇴사함(후회중)</p>
+                                    <p>이거 하려고 퇴사함(후회 중)</p>
                                 </div>
                             </div>
                         </div>
@@ -625,7 +628,7 @@
                 </div>
             </div-->
 
-            <div class="ww-section ww-rsvp-detail" id="map">
+            <div class="ww-section ww-rsvp-detail" id="space">
                 <div class="container">
                     <div class="col text-center">
                         <h2 class="h1 text-center pb-3 ww-title">오시는 길</h2>
@@ -657,9 +660,25 @@
                                 </label>
                             </div>
                             <div class="my-3">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.2006009829497!2d126.91360401503916!3d37.550337332813896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98d725594243%3A0xf298a0fb73b3de49!2z7ZmN64yA65Oc66a87ZmA!5e0!3m2!1sko!2skr!4v1664365534776!5m2!1sko!2skr"
-                                    width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <div id="map" style="width:100%;height:400px;"></div>
+                                <script>
+                                    const map = new naver.maps.Map('map', {
+                                        center: new naver.maps.LatLng(37.5504, 126.9158),
+                                        zoom: 17
+                                    });
+
+                                    const marker = new naver.maps.Marker({
+                                        position: new naver.maps.LatLng(37.5504, 126.9158),
+                                        map: map,
+                                        title: '드림홀',
+                                        visible: true
+                                    });
+
+                                    const info = new naver.maps.InfoWindow({
+                                        content: '<div style="width:70px;text-align:center;padding:3px;border-radius: 30%;"><b>드림홀</b></div>'
+                                    });
+                                    info.open(map, marker);
+                                </script>
                             </div>
                         </div>
                     </div>
