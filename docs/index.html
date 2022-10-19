@@ -61,44 +61,16 @@
         }
 
         function ddayCount() {
-            const today = new Date();
-            const dday = new Date("2022/ 11/ 5");
-            const theDay = Math.floor((dday.getTime() - today.getTime()) / 86400000) + 1;
-            if (theDay <= 0) {
-                $("#dDay>.dday2").remove();
-                $("#dDay").append('<li><span style="margin-left: 5px;">디데이가 되었습니다!</span></li>');
-            } else {
-                document.write(`D-${theDay}(UI timer로 변경 예정)`)
-            }
+            let dDay = '2022-10-17 00:00:00+0900';
+            dDay = dDay.replace(/-/g, "/");
+            const deadline = new Date(dDay).getTime();
+            const current = new Date();
+
+            const diff = current - deadline;
+
+            const days = (Math.floor(diff / (1000 * 60 * 60 * 24)) + 1) + "";
+            document.write(`#입사${days}일차`)
         }
-
-        // $(document).ready(function () {
-
-        //     function getText() {
-        //         var result = null;
-        //         $.ajax({
-        //             url: "https://raw.githubusercontent.com/AndersonChoi/wedding-card/master/README.md",
-        //             type: 'get',
-        //             dataType: 'html',
-        //             async: false,
-        //             success: function (data) { result = data; }
-        //         }
-        //         );
-        //         FileReady = true;
-        //         return result;
-        //     }
-        //     var markdown_source = getText();
-        //     var comment_contents = markdown_source.split("축하의 말")[1];
-
-        //     var md = new Remarkable();
-        //     $("#comments").append(md.render(comment_contents));
-
-
-        //     if (findGetParameter('gift') == 'false') {
-        //         $('#gifts').hide();
-        //     }
-        // });
-
 
 
 
@@ -178,8 +150,8 @@
                                     <h3 class="h2 ww-title"
                                         style="font-family: 'Sunflower', sans-serif; font-size:1.5em">
                                         전형경</h3>
-                                    <p>#안녕#기타#???</p>
-                                    <p>다들 하고 싶은 말~~~</p>
+                                    <p>#행복한 #퇴사인</p>
+                                    <p>민주야 퇴사하면 행복해~~</p>
                                 </div>
                                 <img alt="Groom" class="img-fluid" src="images/member/hyeong.jpg" />
                             </div>
@@ -226,8 +198,8 @@
                                     <h3 class="h2 ww-title"
                                         style="font-family: 'Sunflower', sans-serif; font-size:1.5em">
                                         김현정</h3>
-                                    <p>#안녕#기타#???</p>
-                                    <p>다들 하고 싶은 말~~~</p>
+                                    <p>#노예</p>
+                                    <p>노예...</p>
                                 </div>
                                 <img alt="Groom" class="img-fluid" src="images/member/kim_piano.jpg" />
                             </div>
@@ -250,8 +222,10 @@
                                     <h3 class="h2 ww-title"
                                         style="font-family: 'Sunflower', sans-serif; font-size:1.5em">
                                         김민주</h3>
-                                    <p>#안녕#기타#???</p>
-                                    <p>다들 하고 싶은 말~~~</p>
+                                    <p>
+                                        <script>ddayCount()</script>
+                                    </p>
+                                    <p>사회를 경험하는 중</p>
                                 </div>
                                 <img alt="Groom" class="img-fluid" src="images/member/kim_vocal.jpg" />
                             </div>
@@ -263,8 +237,8 @@
                                     <h3 class="h2 ww-title"
                                         style="font-family: 'Sunflower', sans-serif; font-size:1.5em">
                                         조용호</h3>
-                                    <p>#안녕#기타#???</p>
-                                    <p>다들 하고 싶은 말~~~</p>
+                                    <p>#조절X #드럼=힘</p>
+                                    <p>젊음으로 공연 부수러 왔습니다</p>
                                 </div>
                             </div>
                         </div>
@@ -695,27 +669,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--div class="ww-section bg-light" id="comment">
-                <div class="ww-photo-gallery">
-                    <div class="container">
-                        <div class="col text-center">
-                            <h2 class="h1 text-center pb-3 ww-title" style="font-family: 'Noto Serif KR', serif;">축하메시지
-                            </h2><br>
-                            <div id="comments"></div>
-                            <br>
-                            <div class="row">
-                                <div class="col text-center">
-                                    <form action="https://github.com/AndersonChoi/wedding-card/blob/master/README.md">
-                                        <button class="btn btn-primary btn-submit" type="submit">메시지 남기러 가기</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div-->
-
         </div>
     </div>
     </div>
@@ -762,14 +715,6 @@
 
     <div class="bottom_right"><i class="fa fa-arrow-up fa-2x" id="go-to-top"></i>
     </div>
-
-    <!--div class="bottom_left">
-        <audio id="player" src="mus.mp3"></audio>
-        <div>
-            <i class="fa fa-music fa-2x" onclick="document.getElementById('player').play()"></i>
-        </div>
-    </div-->
-
 </body>
 
 </html>
