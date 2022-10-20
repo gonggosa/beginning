@@ -10364,7 +10364,8 @@ body {
 
 /* Common Style */
 .ww-title {
-  font-family: "Sunflower";
+  font-family: 'Cafe24Ohsquareair';
+  font-weight: 700;
 }
 
 .ww-section {
@@ -10426,4 +10427,14 @@ body {
 
 .mb-info>img {
   width: 30%;
+}
+
+.mb-info p {
+  font-family: "SCoreDream";
+}
+
+.mb-info p.hash {
+  color: #0071bc;
+  font-weight: 500;
+  margin-left: 10px;
 }
