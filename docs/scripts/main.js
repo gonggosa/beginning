@@ -7,7 +7,7 @@ $(document).ready(function () {
     }
 
     $('#go-to-top').click(function () {
-        $('html,body').animate({scrollTop: 0}, 400);
+        $('html,body').animate({ scrollTop: 0 }, 400);
         return false;
     });
 
@@ -76,4 +76,107 @@ $("a.smooth-scroll").click(function (event) {
             );
         }
     }
+});
+
+$('.container__music-box').click((e) => {
+    const musicList = {
+        1: {
+            vocal: ['lee.jpg', 'chae.jpg', 'kim_vocal.jpg'],
+            singer: '어반자카파',
+            title: 'Just the Two of Us'
+        },
+        2: {
+            vocal: ['chae.jpg'],
+            singer: '윤하',
+            title: '사건의 지평선'
+        },
+        3: {
+            vocal: ['lim.jpg'],
+            singer: '빈지노',
+            title: 'Always Awake'
+        },
+        4: {
+            vocal: ['kim_vocal.jpg', 'chae.jpg'],
+            singer: '박기영, 조유진',
+            title: '나에게로의 초대'
+        },
+        5: {
+            vocal: ['lee.jpg'],
+            singer: '너드커넥션',
+            title: 'Back in Time'
+        },
+        6: {
+            vocal: ['kim_vocal.jpg'],
+            singer: 'Keala Settle',
+            title: 'This Is Me'
+        },
+        7: {
+            vocal: ['lee.jpg'],
+            singer: '하동균',
+            title: 'LUCID DREAM'
+        },
+        8: {
+            vocal: ['chae.jpg'],
+            singer: '허소영',
+            title: 'Destination Moon'
+        },
+        9: {
+            vocal: ['chae.jpg'],
+            singer: 'CHEEZE(치즈)',
+            title: '퇴근시간'
+        },
+        10: {
+            vocal: ['lee.jpg'],
+            singer: '너드커넥션',
+            title: 'SUPERNOVA!'
+        },
+        11: {
+            vocal: ['kim_vocal.jpg'],
+            singer: '최예근',
+            title: '어른'
+        },
+        12: {
+            vocal: ['lee.jpg'],
+            singer: '루시',
+            title: '항상 엔진을 켜둘게'
+        },
+        13: {
+            vocal: ['lim.jpg', 'lee.jpg'],
+            singer: '조광일, 브라운티거',
+            title: 'Two Harsh Carls'
+        },
+        14: {
+            vocal: ['kim_vocal.jpg'],
+            singer: '(G)I-DLE',
+            title: 'TOMBOY'
+        },
+        15: {
+            vocal: ['lim.jpg', 'lee.jpg'],
+            singer: '다이나믹듀오',
+            title: '고백(Go Back)'
+        }
+    }
+    console.log(e.currentTarget);
+    const music = musicList[e.currentTarget.dataset.order];
+    e.currentTarget.parentElement.querySelectorAll('.container__music-box').forEach(l => l.classList.remove('box_shadow'));
+    e.currentTarget.classList.add('box_shadow');
+    const music_profile = e.currentTarget.parentElement.previousElementSibling.previousElementSibling.firstElementChild;
+    const music_player = e.currentTarget.parentElement.nextElementSibling.firstElementChild;
+    music_profile.innerHTML = '';
+    music.vocal.forEach(v => {
+        music_profile.innerHTML += `<img class="singer__photo" src="images/member/${v}" />`;
+    });
+    music_player.querySelectorAll('span').forEach((s, i) => {
+        if (i === 0) {
+            s.innerHTML = music.singer;
+        } else {
+            s.innerHTML = music.title;
+        }
+    });
+    /*
+        1. box_shadow 삭제
+        2. box_shadow 클릭한 애들만 추가
+        3. 상단의 이미지 변경
+        4. 아래 글자 변경
+    */
 });
